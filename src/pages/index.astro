@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Card from '../components/Card.astro';
+const pageTitle = "Blackstone HomePage";
+const allProjects = await getCollection("projects");
+---
+<Layout pageTitle={pageTitle}>
+    <div class="profileIcon">
+        <img width="250" height="250" alt="My Icon" src="https://avatars.githubusercontent.com/u/90030892">
+    </div>
+    <h1>Blackstone</h1>
+    <small>Student</small><small>Discord Bot ActiveDeveloper</small>
+    <h2 id="About Me">About Me</h2>
+    <p>北の地方にある学校に所属しています。</p>
+    <p>Ｚ世代の人間ですがゲームが大の苦手でまったくやっていません。ワープロよりも手書き文字（筆や硬筆）の方が好きで心はアナログな人間です。</p>
+    <p>興味のある分野はネットワーク・通信分野です。</p>
+    <h2 id="Works">Works</h2>
+    <ul role="list" class="work-card-grid">
+        {allProjects.map((card) => <Card
+            title={card.data.title} 
+            body={card.data.description}
+        />)}
+    </ul>
+    <h2>Skills</h2>
+    <div class="skill-images">
+        <img width="46" height="46" alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+        <img width="46" height="46" alt="CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+        <img width="46" height="46" alt="HTML" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+        <img width="46" height="46" alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+        <img width="46" height="46" alt="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+    </div>
+    <p>
+        学生(高校)時代は、Photoshopを用いた写真編集やIllustratorでのロゴ作成、Premireでの動画編集、Indesignでの新聞組版を経験しています。ほとんどが授業で触った程度ですのでそこまでできません。高校でのプログラミングはJava・マクロでした。
+    </p>
+</Layout>

@@ -1,0 +1,47 @@
+---
+interface Props {
+    title: string;
+    body: string;
+}
+
+const { title, body } = Astro.props;
+---
+<li class="works-card">
+    <div>
+	    <h3 class="works-title">
+	        {title}
+	    </h3>
+	    <p class="works-txt">
+	        {body}
+        </p>
+    </div>
+</li>
+<style>
+    .works-card {
+        list-style: none;
+        display: flex;
+        background-size: 400%;
+        padding: 20px;
+    }
+
+    .works-card > div {
+        width: 100%;
+        text-decoration: none;
+        line-height: 1.4;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1.5;
+        text-indent: 0;
+        text-align: center;
+        margin: 0.5rem 0 0;
+    }
+</style>
